@@ -54,8 +54,15 @@ A RESTful API criteria:
   - login details etc must be passed along with each request 
 
 - cacheability 
+  
+
 - layered system
+  - lots of data stored in the JSON
+
+
 - code on demand
+
+
 - uniform interface 
 
 
@@ -67,5 +74,73 @@ author = json.loads(json_response)
 author['name']
 author['books'][0]['title']
 ```
+
+
+### Web API 
+
+Spotify for Developers > Web API > Console > Search
+
+Create an account for developers `api.spotify.com`
+Create an OAUTH token to use the API
+token is secret
+
+- Spotify
+- Requests: GET POST PUT DELETE
+- URI & IDs
+- pagination
+- cacheing 
+- status codes  200, 404 ...
+- response schema
+
+to make search for Beyonce 👍
+
+- base_url = "https://api.spotify.com/"
+- endpoint = "v1/search?q=Beyonce&type=artist"
+
+if you have the artist id then endpoint is
+
+- endpoint = "v1/artists/6v2.........0m"
+
+for albums
+- endpoint = "v1/artists/6v2.........0m/albums"
+
+
+base_url + endpoint
+
+
+### curl
+
+curl Open source [software](https://curl.se/) to use the HTTP 
+
+```'
+brew install curl
+```
+
+then once installed 
+```
+curl https://icanhazdadjoke.com
+```
+
+prettify the json data by using `| jq`
+
+curl -X "GET" "HTTPS://api.spotify.com/va/artists/6v9000000999090/albums" .... 8skjskus7" | jq
+
+
+
+### Twilio
+
+- sms
+- other
+- with code
+- javascript
+- host code on twilio
+
+
+
+Get Twilio phone number , it can send/ receive using it
+
+Developer Docs > SMS > API Reference > Message Resource > create a message
+
+select `curl` tab
 
 
