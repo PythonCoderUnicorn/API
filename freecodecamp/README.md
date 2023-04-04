@@ -169,6 +169,22 @@ Using VS Code editor to use twilio api in a javascript file @ 1:48:00
 
 ## project 
 
+the project uses Twilio to receive images and text messages
+
+[the code (index.html)](https://github.com/TwilioDevEd/introduction-to-apis-notes/blob/main/code/3-all-together-now/1-introducing-the-project/index.html)
+
+
+get Twilio to host your HTML code
+
+Twilio functions & assets > services > create service > give name
+
+Add+ (to upload file) > select index.html > select public > upload > deploy all
+
+assets/ 🟢 /index.html > copy url > paste in browser 
+
+[name of service][randomnumbers].twilio.io/index.html
+
+
 
 
 
