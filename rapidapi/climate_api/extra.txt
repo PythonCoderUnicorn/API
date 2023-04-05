@@ -1,0 +1,90 @@
+
+
+app.get('/news', (req, res) => {
+  res.json(articles)
+})
+
+
+
+
+
+
+app.get('/news', (req, res) => {
+
+  axios.get('https://www.theguardian.com/environment/climate-crisis')
+    .then((response) => {
+      const html = response.data
+      // console.log(html) // raw html
+      const $ = cheerio.load(html)  // allows for elements
+
+      // find all a tags that have climate
+      $('a:contains("climate")', html).each(function () { // callback function
+        const title = $(this).text()
+        const url = $(this).attr('href')
+
+        articles.push({ title, url })
+      })
+      res.json(articles)
+    }).catch((err) => console.log(err))
+  
+  // --- part 2
+  res.json(articles)
+})
+
+
+
+
+
+
+
+
+
+
+const newspapers = [
+  {
+    name: "thetimes",
+    address: "https://www.thetimes.co.uk/environment/climate-change",
+    base: ''
+  },
+  {
+    name: "guardian",
+    address: "https://www.theguardian.com/environment/climate-crisis",
+    base: ''
+  },
+  {
+    name: "telegraph",
+    address: "https://www.telegraph.co.uk/climate-change",
+    base: 'https://www.telegraph.co.uk/'
+  }
+]
+
+
+
+app.get('/news/:newspaperId', async (req, res) => {
+  // console.log(req.params.newspaperId)
+  const newspaperId = req.params.newspaperId 
+
+  const newspaperAddress = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].address
+  // console.log(newspaperAddress)
+  const newspaperBase = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].base 
+  
+  axios.get(newspaperAddress)
+    .then(response => {
+      const html = response.data
+      const $ = cheerio.load(html)
+      const specific_articles = []
+  
+        $('a:contains("climate")', html).each(function () { // callback function
+          const title = $(this).text()
+          const url = $(this).attr('href')
+          specific_articles.push({
+            title,
+            url: newspaperBase + url,
+            source: newspaperId
+          })
+      })
+      res.json(specific_articles)
+    }).catch((err) => console.log(err))
+    
+})
+
