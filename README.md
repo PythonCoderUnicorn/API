@@ -149,9 +149,17 @@ app.get('/news/:newspaperId', async (req, res) => {
 
 
 
-
+tutorial had : climatechangeapi.herokuapp.com 
 
 
 
 
 climate change API
+
+
+## Render 
+
+New + > new web service 
+npm run build
+
+https://climatenewsapi.onrender.com
