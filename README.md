@@ -17,7 +17,41 @@ GET `jsonplaceholder.typicode.com/posts`
 
 https://fastapi.tiangolo.com/
 
+
+
 install FastAPI
 ```
 pip install fastapi
 ```
+
+run fastapi 
+https://fastapi.tiangolo.com/deployment/manually/
+
+
+
+## RapidAPI Studio
+
+create an API private thuses an API 
+
+`https://zoo-animal-api.herokuapp.com/`
+
+`https://rapidapi.com/unicornapi/api/earth-animals`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
